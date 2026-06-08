@@ -1,0 +1,137 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.sentence-box,
+.review-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 12px;
+    cursor: pointer;
+
+    border: 1px solid #ccc;
+
+    transition: background-color 0.2s ease;
+}
+
+.selected {
+    background-color: #4caf50;
+    color: white;
+}
+.comment-box {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.save-button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.review-item form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#theme-toggle {
+    margin-top: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* ダークモード */
+
+.dark-mode {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark-mode .container {
+    background-color: #2d2d2d;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode p,
+.dark-mode strong {
+    color: white;
+}
+
+.dark-mode .sentence-box,
+.dark-mode .review-item {
+    background-color: #3a3a3a;
+    color: white;
+}
+
+.dark-mode textarea {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+}
+
+.dark-mode button {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+}
+
+.dark-mode input {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+}
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+}
+.dark-mode .button-group button.selected {
+    background-color: #4caf50;
+    color: white;
+}
