@@ -1,11 +1,7 @@
 <?php
 
-// =========================
-// ダミーAI（無料版）
-// =========================
 function analyzeText($text)
 {
-	// 簡易スコア（無料ロジック）
 	$baseScore = 70;
 
 	if (preg_match('/です|ます|。/', $text)) {
@@ -46,10 +42,6 @@ function analyzeText($text)
 	];
 }
 
-
-// =========================
-// DB接続
-// =========================
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -61,24 +53,12 @@ if ($conn->connect_error) {
 	die("接続失敗: " . $conn->connect_error);
 }
 
-
-// =========================
-// フォーム取得
-// =========================
 $sentence = $_POST["sentence"] ?? "";
 $rating   = $_POST["rating"] ?? "";
 $comment  = $_POST["comment"] ?? "";
 
-
-// =========================
-// AI（ダミー）実行
-// =========================
 $aiResult = analyzeText($sentence);
 
-
-// =========================
-// JSON取得
-// =========================
 $aiContent = $aiResult["choices"][0]["message"]["content"] ?? "";
 
 $aiJson = json_decode($aiContent, true);
@@ -87,18 +67,10 @@ if (!$aiJson) {
 	die("JSON解析失敗: " . $aiContent);
 }
 
-
-// =========================
-// 値取得
-// =========================
 $ai_score     = $aiJson["score"] ?? 0;
 $ai_feedback  = $aiJson["feedback"] ?? "";
 $ai_corrected = $aiJson["corrected"] ?? "";
 
-
-// =========================
-// DB保存
-// =========================
 $sql = "INSERT INTO reviews 
 (sentence, rating, comment, ai_score, ai_feedback, ai_corrected)
 VALUES (?, ?, ?, ?, ?, ?)";
